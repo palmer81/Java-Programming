@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- build.xml, for Ant to compile and run JOGL JSR 231 1.1.1, Wainer -->
+<project name="Select" basedir="." default="run2102">
+	<property name="build.dir" value="build" />
+	<property name="src.dir" value="src" />
+	<property name="dist.dir" value="dist" />
+	<property name="joglLibs2102" value="C:/jogl/lib" />
+	<property name="joglNative2102" value="C:\jogl\lib" />
+	<property name="myJoglLibs" value="/System/Library/Frameworks/javaVM.framework/Versions/1.5.0/Home/lib/jogl-1.1.1-macosx-universal/lib" />
+	<property name="myJoglNative" value="/System/Library/Frameworks/javaVM.framework/Versions/1.5.0/Home/lib/jogl-1.1.1-macosx-universal/lib" />
+	
+	<property name="mainClass" value="Selection" />
+
+	<target description="Creates temporary directories" name="init">
+		<mkdir dir="${build.dir}/classes" />
+		<mkdir dir="${dist.dir}" />
+	</target>
+
+
+	<target depends="init" description="Removes temporary directories" name="clean">
+		<delete dir="${build.dir}" />
+		<delete dir="bin" failonerror="false" />
+		<delete dir="${dist.dir}" failonerror="false" />
+	</target>
+
+	<target name="compile2102" depends="init">
+		<javac debug="true" deprecation="true" destdir="${build.dir}/classes" srcdir="${src.dir}" verbose="true">
+			<classpath>
+				<fileset dir="${joglLibs2102}">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+	
+	<target name="myCompile" depends="init">
+			<javac debug="true" deprecation="true" destdir="${build.dir}/classes" srcdir="${src.dir}" verbose="true">
+				<classpath>
+					<fileset dir="${myJoglLibs}">
+						<include name="*.jar"/>
+					</fileset>
+				</classpath>
+			</javac>
+	</target>
+
+	<target name="run2102" depends="compile2102" description="Run the Draw Example">
+		<java classname="${mainClass}" failonerror="true" fork="true">
+			<jvmarg value="-Dsun.java2d.noddraw=true" />
+			<jvmarg value="-Djava.library.path=${joglNative2102}" />
+			<classpath>
+				<fileset dir="${joglLibs2102}">
+					<include name="*.jar" />
+				</fileset>
+				<pathelement location="${build.dir}/classes" />
+				<pathelement location="${build.dir}/.." />
+			</classpath>
+		</java>
+	</target>
+	
+	<target name="myRun" depends="myCompile" description="Run the Draw Example">
+			<java classname="${mainClass}" failonerror="true" fork="true">
+				<jvmarg value="-Dsun.java2d.noddraw=true" />
+				<jvmarg value="-Djava.library.path=${myJoglNative}" />
+				<classpath>
+					<fileset dir="${myJoglLibs}">
+						<include name="*.jar" />
+					</fileset>
+					<pathelement location="${build.dir}/classes" />
+					<pathelement location="${build.dir}/.." />
+				</classpath>
+			</java>
+	</target>
+
+</project>

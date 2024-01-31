@@ -1,0 +1,9 @@
+Back to harpalHome
+
+User story #4
+
+Visualizes "Repaint board to current model"
+
+Screen shot: 
+
+HarpalImages:brg_user_story_4.JPG

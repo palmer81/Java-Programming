@@ -1,0 +1,32 @@
+package test;
+
+import static org.junit.Assert.*;
+import org.junit.Test; 
+
+public class RaceGameTest {
+	public static final int NO_PLAYER = 0; 
+	public static final int PLAY_A_INIT_POS = 0;
+	public static final int PLAY_B_INIT_POS = 14;
+	
+	@Test
+	public void testInit() {
+		RaceGameModel modelTest = new RaceGameModel();
+
+		int playAPos = modelTest.getPlayerPos(RaceGameModel.PLAYER_A);
+		assertEquals("Player A initial pos", PLAY_A_INIT_POS, playAPos);
+		int playBPos = modelTest.getPlayerPos(RaceGameModel.PLAYER_B);
+		assertEquals("Player B initial pos", PLAY_B_INIT_POS, playBPos);
+	
+		int turnId = modelTest.getTurnId();
+		assertEquals("Initial turn ID", RaceGameModel.PLAYER_A, turnId);
+	
+		int numClicks = modelTest.getNumClicks(); 
+		assertEquals("Initial numClicks", 0, numClicks);
+
+		boolean roll = modelTest.getRoll(); 
+		assertEquals("Initial roll", true, roll);
+		
+		int winner = modelTest.getWinner(); 
+		assertEquals("Initial winner", NO_PLAYER, winner);
+	}
+}

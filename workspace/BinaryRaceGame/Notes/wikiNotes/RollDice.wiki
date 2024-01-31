@@ -1,0 +1,9 @@
+Back to harpalHome
+
+User story #2
+
+Visualizes "Roll Dice"
+
+Screen shot: 
+
+HarpalImages:brg_user_story_2.JPG

@@ -1,0 +1,167 @@
+/**
+ * BinaryRaceGameTest.java
+ * Michael Harris <mharris@siu.edu>, Scott Palmer <spalmer@siu.edu> 
+ * CS 435 (Fall 2009) 
+ */
+
+package brg;
+
+import static org.junit.Assert.*;
+import org.junit.Test; 
+import brg.BinaryRaceGame.Player;
+
+public class BinaryRaceGameTest {
+	// test parameters 
+	static final int MAX_TESTED_PLAYERS 	= 2; 
+	
+	static final int bluePlayer = 0;
+	static final int redPlayer = 1;
+	static final int yellowPlayer = 2;
+	static final int greenPlayer = 3; 
+	
+	// test references 
+	BinaryRaceGame model;
+	Player[] players; 
+
+	void resetModel() { 
+		model = new BinaryRaceGame(); 
+		players = model.players;
+	}
+
+	/*
+	 * test each player's home position 
+	 */
+	@Test
+	public void testHomePos() { 
+		resetModel(); 
+		
+		assertEquals(
+				"Blue player's home position",
+				BinaryRaceGame.BLUE_INIT_POS,
+				players[bluePlayer].getHomePos()
+				);
+		assertEquals(
+				"Red player's home position", 
+				players[redPlayer].getHomePos(),
+				BinaryRaceGame.RED_INIT_POS
+				);
+		assertEquals(
+				"Yellow player's home position",
+				players[yellowPlayer].getHomePos(),
+				BinaryRaceGame.YELLOW_INIT_POS
+				);
+		assertEquals(
+				"Green player's home position", 
+				players[greenPlayer].getHomePos(),
+				BinaryRaceGame.GREEN_INIT_POS
+				);
+	}
+
+	/*
+	 * test the initial positions of each player's pawns
+	 * 	(i.e., initial pawn position should be equal to player's 
+	 * 	home position) 
+	 */
+	@Test
+	public void testInitPawnPos() {
+		resetModel();
+		
+		for (int l = 0; l < players.length; l++) {
+			for (int p = 0; p < Player.PAWNS_EACH; p++) {
+				assertEquals(
+						players[l].getName() + " pawn #" + p + " initial position",
+						players[l].getPawnPos(p),
+						players[l].getHomePos()
+						);
+						
+			}
+		}
+	}
+
+	/*
+	 * test the initial number of pawns per player (Player.PAWNS_EACH)
+	 */
+	@Test
+	public void testInitNumPawns() { 
+		resetModel(); 
+		
+		for (Player l : players)
+			assertEquals(
+					l.getName() + " initial number of pawns",
+					l.getNumPawns(),
+					Player.PAWNS_EACH
+					);
+	}
+
+	/* 
+	 * test the initial number of collisions per player (0)
+	 */
+	@Test
+	public void testInitCollisions() { 
+		resetModel();
+		
+		for (int l = 0; l < players.length; l++)
+			assertEquals(
+					players[l].getName() + " initial collision value",
+					players[l].getCollisions(),
+					0
+					); 
+			
+	}
+
+	/*
+	 * test movement of each pawn to adjacent cell 
+	 */
+	@Test
+	public void testMovement() {
+		resetModel();
+		
+		for (int l = 0; l < players.length; l++) {
+			for (int p = 0; p < Player.PAWNS_EACH; p++) {
+				
+				int orgPos = players[l].getPawnPos(p);
+				
+				model.move(l, p, 1, players[l].getPawnPos(p) + 1);
+				assertNotSame(players[l].getName() + " movement to adjacent cell", 
+						orgPos, 
+						players[l].getPawnPos(p)
+						);
+			}
+		}
+	}
+	
+
+	@Test
+	public void testIncCollisions() { 
+		resetModel();
+		
+		for (Player l : players) {
+			int c = l.getCollisions();
+			l.incCollisions();
+			
+			assertNotSame(
+					l.getName() + " collision increment", 
+					c, 
+					l.getCollisions()
+					);
+		}
+	}
+	
+	@Test
+	public void removePiece() { 
+		resetModel(); 
+		
+		for (Player l : players) {
+			int pos = 25;
+			l.incCollisions(); 
+			int d = l.getCollisions(); 
+			l.decCollisions();
+			
+			assertNotSame(
+					l.getName() + " collision decrement",
+					d,
+					l.getCollisions()
+					);
+		}
+	}
+}

@@ -1,0 +1,34 @@
+10
+
+dir
+15
+svn://cslab.cs.siu.edu/harpal/RaceGame/src
+svn://cslab.cs.siu.edu/harpal
+
+
+
+2009-09-17T20:13:32.368993Z
+15
+harris
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+832c1ff8-9611-44e0-a401-5aa6c086e431
+
+example
+dir
+
+test
+dir
+

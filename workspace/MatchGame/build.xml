@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- build.xml, for Ant to compile and run cs435F08 example, Wainer -->
+<project name="MatchGame" basedir="." default="compile">
+	<property name="build.dir" value="build" />
+	<property name="src.dir" value="src" />
+	<property name="dist.dir" value="dist" />
+	<target description="Creates temporary directories" name="init">
+		<mkdir dir="${build.dir}/classes" />
+		<mkdir dir="${dist.dir}" />
+	</target>
+	<target depends="init" description="Removes temporary directories" name="clean">
+		<delete dir="${build.dir}" />
+		<delete dir="bin" failonerror="false" />
+		<delete dir="${dist.dir}" failonerror="false" />
+	</target>
+	<target name="compile" depends="init">
+		<javac debug="true" deprecation="true" destdir="${build.dir}/classes" srcdir="${src.dir}" verbose="true" />
+	</target>
+	<target name="run MatchGame" depends="compile" description="Run the Example">
+		<java classname="MatchGame" failonerror="true" fork="true">
+			<classpath>
+				<pathelement location="${build.dir}/classes" />
+				<pathelement location="${build.dir}/.." />
+			</classpath>
+		</java>
+	</target>
+</project>

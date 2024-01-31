@@ -1,0 +1,34 @@
+10
+
+dir
+8
+svn://cslab.cs.siu.edu/nimF09/AsteroidsLWJGL2/lib
+svn://cslab.cs.siu.edu/nimF09
+
+
+
+2009-09-15T22:13:27.372828Z
+6
+wainer
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+ac953cab-93c9-42aa-b1c1-2ec950f2dda1
+
+jorbis
+dir
+
+lwjgl
+dir
+

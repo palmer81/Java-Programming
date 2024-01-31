@@ -1,0 +1,10 @@
+
+Part of progress is responding to comments and questions
+c000. For this project I am now expecting to only look in Binary Race Game repository
+q001. Iteration Budget of 17.8 sounds like it could be reasonable. Please show how you arrive at that value.
+c002. Stories pretty much follow handout order - please check 80 & 90
+q003. Any suggestions to split stories esp. 10 (display game)?
+q004. Would like to see links to show interface design sketches.
+c005. Generally discouraged to "write ahead" as the brg.BinaryRaceGameViewCtrl class appears to be. Wait until you are really ready for it. Sometimes it is easy to write code that ends up never being used.
+
+Back to [[harpalHome]]

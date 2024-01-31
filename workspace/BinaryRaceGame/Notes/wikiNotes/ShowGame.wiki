@@ -1,0 +1,10 @@
+Back to harpalHome
+
+User story #1 
+
+Visualizes board, dice and game pieces
+
+Screen shot: 
+
+HarpalImages:brg_user_story_1.JPG
+

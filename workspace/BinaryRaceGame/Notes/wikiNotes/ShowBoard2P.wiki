@@ -1,0 +1,9 @@
+Back to harpalHome
+
+User story #1-1
+
+Visualizes board, dice and game pieces for 2 Players
+
+Screen shot: 
+
+HarpalImages:brg_user_story_1_1.JPG

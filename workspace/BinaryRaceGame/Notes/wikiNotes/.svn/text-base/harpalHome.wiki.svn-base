@@ -1,0 +1,86 @@
+---+ Binary Race Game F09
+
+---+++ Game Description
+<verbatim>
+A simple updated description of the application should be placed here
+</verbatim>
+---+++ Source Code
+links to source model, tests etc.
+
+---++ Progress
+Create a ProgressLog for reporting groups present and past activities. This should be used to help coordinate your work, help in checking your estimates, and later during retrospection.
+
+---++ 2 Week Iteration (Work Units Budgeted 28)
+We arrived a figure of 28 work units by estimating the number of ideal work hours each programmer can dedicate to this project on a weekly basis (10), and by adjusting for an initial velocity of 70%. 
+
+10 hours/week * 2 programmers * 2 weeks * .7 = 28 hours 
+
+Work units: 28 
+
+*Status Codes*
+<verbatim>
+S - split, P - in progress, c - completed?, CC - confirmed completed, R - risky?
+N - next (put off to near future), D - discontinued/distant future, U - unclassified 
+</verbatim>
+
+*Priority Scale*
+Lower is Better (10 - High, 30 - Med, 50 - Low)
+
+The stories are entered here. The originals come from the handout but the numbers are multiplied by 10 (to allow for splits). You may create/link to other pages to elaborate on details. For instance you might want a page to describe tasks or you might start by placing some of that information in the ProgressLog
+
+---+++ Stories
+| *ID* | *Status* |  *Title* | *Description* | *Estimate* | *Priority* |
+| 010 | S |  [[ Show Game ]] |  Visualizes board, dice and game pieces 2 to 4 players | - | - |
+| 011 | - |  [[Show Board 2P]] |  Visualizes board, dice and game pieces for 2 players | 3.5 | 10 |
+| 012 | - |  [[Show Board 3 or 4P]] |  Visualized board, dice and game pieces for 3/4 players | 2.5 | 30 |
+| 013 | - |  [[Show Status Area]] | Visualizes "Status Region" | 1.5 | 15 |
+| 020 | - |  [[Roll Dice]] | Lets user roll dice but only at proper time | 2.5 | 15 |
+| 030 | - |  [[ Piece Selection ]] / [[ Apply Roll ]] | User can select proper piece only, roll value is applied to that piece. | 3.5 | 12 |
+| 040 | - |  [[Update Board]] |  Repaint board with current model. | 2.5 | 10 |
+| 050 | - |  [[Track Current Turn]] |  System understands which players turn it is. | 2.5 | 20 |
+| 060 | - |  [[Roll Again]] |  System understands the conditions in which a player can roll again. | 2 | 20 |
+| 070 | S |  [[Colliding Pieces]] |  Crashing of opposing pieces causes the stationary piece to move back to home position. | - | - |
+| 071 | P |  [[Colliding Pieces]] |  Crashing of opposing pieces causes the first non-moving player that entered the space to return home | 2.5 | 20 |
+| 072 | - |  [[Piece Home Selection]] | User can select piece to which piece to send home | 2.5 | 20 |
+| 080 | P |  [[Win Case]] |  System capable of evaluating the model data to determine winner after each successful move. | 1.5 | 30 |
+| 090 | - |  [[Pass Turn]] |  A user may forfeit their roll and pass their turn to the next player. | 2.5 | 30 |
+| 100 | - |  [[New Game]] |  User able to start a new game during any state. | 1.5 | 12 |
+
+---+++ Customer Questions
+QUESTION:
+
+We have noticed that there is a possibility of a "dead lock" situation in the game wherein all players are required to "pass" the move.  This may occur if every pawn ("in play") is moved to the further extent possible without a collision.  In such a case, every user will be required to "pass" and no user will be permitted to move.  Should we implement avoidance/detection measures?
+
+RESOLUTION: 
+
+The customer has clarified that the pieces continue to move around the outer edge of the playing area if the player has not yet been involved in a collision.
+
+QUESTION: 
+
+What should we do when player wins a game? (i.e. should the user be prompted to play again?, should the winner just be announced and then wait for user input? or should there be options to quit or play again?, etc.)
+
+RESOLUTION:
+
+Initial and successive winners will be announced until only one player remains.(refer to next question)
+
+QUESTION:
+
+When there is only one player left in play, what should happen?(prompt of all winners, allow for continuous play, start new game...).
+
+QUESTION:
+
+When multiple pawns occupy the same space, what should occur?
+
+RESOLUTION:
+
+The colliding piece will decide on which piece will go home.
+
+QUESTIONS:
+
+Does the game need to track the number of collisions per player, or is a "collision flag" suitable to indicate that the player in question is clear to make a "turn-in" move?
+
+RESOLUTION:
+
+A "collision flag" is suitable; we do not need to track the specific number of collisions. 
+
+

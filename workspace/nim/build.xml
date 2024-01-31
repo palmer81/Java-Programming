@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- build.xml, for Ant to compile and run the Nim Game example, Wainer -->
+<project name="nim" basedir="." default="compile">
+	<property name="build.dir" value="build" />
+	<property name="src.dir" value="src" />
+	<property name="dist.dir" value="dist" />
+	<property name="build.compiler" value="modern" />
+
+	<target description="Creates temporary directories" name="init">
+		<mkdir dir="${build.dir}/classes" />
+		<mkdir dir="${dist.dir}" />
+	</target>
+
+	<target depends="init" description="Removes temporary directories" name="clean">
+		<delete dir="${build.dir}" />
+		<delete dir="${dist.dir}" failonerror="false" />
+	</target>
+
+	<target name="compile" depends="init">
+		<javac debug="true" deprecation="true" fork="true" destdir="${build.dir}/classes" srcdir="${src.dir}" verbose="true" source="1.6" target="1.6">
+		</javac>
+	</target>
+
+	<target name="run guinim" depends="compile" description="Run the Application">
+		<java classname="nim.GuiNim" failonerror="true" fork="true">
+			<classpath>
+				<pathelement location="${build.dir}/classes" />
+				<pathelement location="${build.dir}/.." />
+			</classpath>
+		</java>
+	</target>
+
+</project>
