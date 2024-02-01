@@ -73,7 +73,7 @@
 
     This is a racing game that offers you an option to roll a die and then move to a position. Another user gets to go and so forth until the all the users finish.
 
-19. [RaceGameGroup copy](https://github.com/palmer81/Java-Programming/tree/main/workspace/RaceGameGroup copy/)
+19. [RaceGameGroup&nbsp;copy](https://github.com/palmer81/Java-Programming/tree/main/workspace/RaceGameGroup%20copy)
 
     Copy of the RaceGameGroup. Not sure what I was upto but I made a copy potentially to become a better programmer 
 
