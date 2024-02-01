@@ -9,7 +9,7 @@
 
    The main() is in SelectionSortViewer.java, without running the project in awhile all I can say is a JFrame is made with a 300x400 frame that will show in the top left corner. Hopefully an randomly made array will animate a selection sort.
 
-3. [AstroidsWJGL2](https://github.com/palmer81/Java-Programming/tree/main/workspace/AstroidsWJGL2/)
+3. [AstroidsLWJGL2](https://github.com/palmer81/Java-Programming/tree/main/workspace/AstroidsLWJGL2/)
 
    This is an astroid game that used the Lightweight Java Game Library which can be found [here](https://github.com/LWJGL/lwjgl/tree/master). Can't if this will work but it looks like everything is there to run the program. Ant would be the best way to run this project see the build.xml.
 
