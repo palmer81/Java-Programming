@@ -31,3 +31,4 @@ workspace/*/dist/
 workspace/*/.classpath
 workspace/*/.project
 workspace/FileWriter/filename.txt
+.vscode
