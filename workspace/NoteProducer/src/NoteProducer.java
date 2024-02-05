@@ -1,4 +1,3 @@
-//file: DriveThrough.java
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Enumeration;
@@ -8,20 +7,49 @@ import javax.swing.*;
 
 import net.miginfocom.swing.MigLayout;
 
+
+/**
+ * The Class NoteProducer creates a GUI to select a Fret and guess the note.
+ * 
+ * To compile you nned to include the libraries in the `lib` folder. I 
+ * unforunately don't have a javac command. I include both the miglayout swing 
+ * and core libraries to the build path.
+ */
 public class NoteProducer {
+	
+	/** The Constant SIX_GUITAR. */
 	public static final int FOUR_BASS = 0, FIVE_BASS = 1, 
 							SIX_GUITAR = 2;
+	
+	/** The current guitar. */
 	public static int stringVar, fretVar, guitarRef[][], bassRef[][],
 						firstTime, currentGuitar;
+	
+	/** The random num. */
 	public static Random randomNum;
+	
+	/** The group guitar. */
 	public static ButtonGroup GROUP_GUITAR;
+	
+	/** The Constant noteRadioButtons. */
 	final static ButtonGroup noteRadioButtons[] = new ButtonGroup[7];
+	
+	/** The Constant FRAME. */
 	final static JFrame FRAME =  new JFrame("Note Checker");
+	
+	/** The fret num. */
 	static JLabel stringNum, fretNum;
+	
+	/** The submit panel. */
 	static JPanel notePromptPanel,guitarChoicePanel,
 					stringLabelPanel,noteChoicePanel, submitPanel;
 	
 	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		randomNum = new Random();
 		currentGuitar = SIX_GUITAR;
@@ -29,6 +57,9 @@ public class NoteProducer {
 		createGUI();
 	}
 	
+	/**
+	 * Creates the GUI.
+	 */
 	public static void createGUI() {
 		notePromptPanel = setNotePrompt();
 		guitarChoicePanel = createGuitarChoice();
@@ -51,6 +82,11 @@ public class NoteProducer {
 		FRAME.setVisible(true);
 	}
 	
+	/**
+	 * Sets the note prompt.
+	 *
+	 * @return the j panel
+	 */
 	public static JPanel setNotePrompt() {
 		stringVar = randomNum.nextInt(6);
 		fretVar = randomNum.nextInt(20);
@@ -69,6 +105,11 @@ public class NoteProducer {
 		return chosenNote;
 	}
 	
+	/**
+	 * Creates the guitar choice.
+	 *
+	 * @return the j panel
+	 */
 	public static JPanel createGuitarChoice() {
 		boolean fourBass = false, fiveBass = false, sixGuitar = true;
 		
@@ -88,6 +129,11 @@ public class NoteProducer {
 		return guitarType;
 	}
 	
+	/**
+	 * Creates the string label.
+	 *
+	 * @return the j panel
+	 */
 	public static JPanel createStringLabel() {
 		JPanel stringLabel = new JPanel(new MigLayout("align center, flowx, insets 0"));
 		JLabel stringE = new JLabel("E String = 6 ");
@@ -105,6 +151,13 @@ public class NoteProducer {
 		return stringLabel;
 	}
 	
+	/**
+	 * Creates the note radio.
+	 *
+	 * @param ref the ref
+	 * @param num the num
+	 * @return the j panel
+	 */
 	public static JPanel createNoteRadio(int ref, int num) {
 		String s1 = "", s2 = "", s3 = "";
 		if (ref == 0) {
@@ -144,6 +197,11 @@ public class NoteProducer {
 		return panel;
 	}
 	
+	/**
+	 * Creates the note choice.
+	 *
+	 * @return the j panel
+	 */
 	public static JPanel createNoteChoice() {
 		JPanel allNotes = new JPanel(new MigLayout("align center, flowx, insets 0"));
 		JPanel aPanel = createNoteRadio(0, 0);
@@ -165,6 +223,11 @@ public class NoteProducer {
 		return allNotes;
 	}
 	
+	/**
+	 * Creates the submit.
+	 *
+	 * @return the j panel
+	 */
 	public static JPanel createSubmit() {
 		JPanel submitPanel = new JPanel();
 		JButton newNoteButton = new JButton("New Note");
@@ -222,6 +285,11 @@ public class NoteProducer {
 		return submitPanel;
 	}
 	
+	/**
+	 * Refresh.
+	 *
+	 * @param guitarChoice the guitar choice
+	 */
 	public static void refresh(int guitarChoice) {
 		if (guitarChoice == FOUR_BASS) 
 			stringVar = randomNum.nextInt(4);
@@ -285,6 +353,9 @@ public class NoteProducer {
 		noteChoicePanel.repaint();
 	}
 	
+	/**
+	 * Check answer.
+	 */
 	public static void checkAnswer() {
 		int results[] = {12, 12, 12, 12, 12, 12, 12};
 		String entries[] = new String[7];
@@ -529,6 +600,9 @@ public class NoteProducer {
 		}
 	}
 	
+	/**
+	 * Inits the answers.
+	 */
 	public static void initAnswers() {
 		//base numbers for each string.
 		//G flat is 11 as well as A sharp which is the highest number
@@ -595,6 +669,9 @@ public class NoteProducer {
 		}
 	}
 	
+	/**
+	 * Clear.
+	 */
 	public static void clear() {
 		for (ButtonGroup radioButtons: noteRadioButtons) { 
 			Enumeration<AbstractButton> button = radioButtons.getElements();

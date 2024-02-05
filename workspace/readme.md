@@ -60,10 +60,10 @@ be deleted~~
    [here](https://www.java.com/en/download/help/enable_browser.html) to see how
    get Applets to work.
 
-10. #### [FileWriter](https://github.com/palmer81/Java-Programming/tree/main/workspace/FileWriter/)
+10. #### [Files](https://github.com/palmer81/Java-Programming/tree/main/workspace/Files/)
 
-    Simple File Writer to create a file which writes the filename in the file if
-    the file doesn't exist. The format of the code is really not that great.
+    Files has an example of how to create, write and read to a file. I plan to
+    just have examples of how to execute, read and write files.
 
 11. #### [GreetingRunnable](https://github.com/palmer81/Java-Programming/tree/main/workspace/GreetingRunnable/)
 
